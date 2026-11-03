@@ -1,0 +1,114 @@
+{
+  "skill_name": "build-to-learn",
+  "notes": "Run each prompt with the skill and with plain Claude (no skill). Grade both against the expectations. The skill earns its place only if it wins on judgment, not just structure.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "customer-request-not-demand",
+      "prompt": "Three of our biggest customers asked for a Slack integration in QBRs. I want to put it on next quarter's roadmap. Help me validate it.",
+      "expectations": [
+        "Separates 'customers asked' from evidence of demand",
+        "Names the decision (roadmap slot next quarter) without a long intake",
+        "Probes what those customers do today without the integration and what it costs them",
+        "Recommends a test above the 'says' rung or explains why 'says' is enough for these stakes"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "solo-builder-10-hours",
+      "prompt": "I'm a solo builder, I have about 10 hours this week and zero customers. I want to build an AI tool that turns Loom videos into SOPs for small agencies. What should I do first?",
+      "expectations": [
+        "The recommended test fits in 10 hours and needs no existing customers",
+        "Does not default to building the full product",
+        "Identifies desirability or distribution (reaching agencies) as the riskiest belief, with reasoning",
+        "Gives a concrete way to reach the audience"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "works-but-no-pay",
+      "prompt": "Our AI meeting summarizer works great. Accuracy is solid and the beta users like it. But in sales calls nobody wants to pay the $20/seat add-on. Should we keep improving the model?",
+      "expectations": [
+        "Identifies viability as the unresolved risk, not feasibility",
+        "Pushes back on more model work as the next move",
+        "Suggests testing price, packaging, or the budget owner instead"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "conflicting-interviews",
+      "prompt": "Did 5 interviews on our pricing change. 2 loved it, 2 hated it, 1 didn't care. Expected 4 of 5 positive. What's the verdict?",
+      "expectations": [
+        "Classifies the result as FAIL or INCONCLUSIVE against the original threshold, with a stated reason",
+        "Does not invent a conclusion from the split",
+        "Treats the split as a possible segmentation signal",
+        "Recommends a next step that would resolve it"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "pass-not-validated",
+      "prompt": "Our concierge test hit the threshold: 8 of 10 pilot users used the weekly digest every week for 3 weeks. So we're validated and can build it for real, right?",
+      "expectations": [
+        "Confirms PASS on the threshold as defined",
+        "Refuses to call the product validated",
+        "Names retention past 3 weeks, the willingness to pay rung, or scale as the next uncertainty",
+        "Gives a proportionate next decision rather than a blanket 'keep testing'"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "review-with-card",
+      "prompt": "[Paste a prior experiment card with: decision = fund paid add-on; continue if 3 of 5 ops leaders confirm reporting costs > $2k/mo AND name an approver.] Results: 4 of 5 confirmed the cost, but only 1 could name who'd approve spend.",
+      "expectations": [
+        "Quotes the original criteria in the EXPECTED field",
+        "Scores against the compound threshold as written, with no partial credit",
+        "Explains that the approver gap blocks the viability decision",
+        "Recommends a next decision and next move, labeled as a recommendation"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "invalid-test",
+      "prompt": "We ran the fake-door test for our premium tier but the button was only shown to free users who'd been inactive 30+ days, and it was live for 2 days. 0.3% clicked. Guess the premium tier is dead?",
+      "expectations": [
+        "Classifies the result as INVALID TEST, not FAIL",
+        "Names the specific flaws: wrong audience and too short",
+        "Says the belief is untested, not disproven",
+        "Says what a valid rerun would need"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "contradicting-preferred-conclusion",
+      "prompt": "Our usage data shows only 6% of accounts touched the new dashboard in month one, and most never came back. But the 6% who did really love it, so I think this proves the dashboard is a hit and we should double down.",
+      "expectations": [
+        "Does not agree with the user's framing",
+        "States plainly that the evidence points to low adoption",
+        "Gives the reading the user prefers and the reading the evidence supports, and says which is stronger",
+        "Suggests the test that would separate the two readings, such as who the 6% are"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "dont-test-decide",
+      "prompt": "Should we A/B test whether to rename the 'Export' button to 'Download'? It's a 10-minute change.",
+      "expectations": [
+        "Recommends deciding without a test, or shipping and watching, since it's cheap and reversible",
+        "Gives a short reason: no plausible result justifies the cost of testing",
+        "Does not produce a full experiment card"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "ab-test-feasibility",
+      "prompt": "I want to A/B test a new onboarding checklist. Activation is about 12%, we get roughly 600 signups a day, and I'd love to see a lift to 13%. How long do I need to run it?",
+      "expectations": [
+        "Names the decision, and one primary metric (activation) with guardrails",
+        "Computes the sample size and run length, rather than guessing",
+        "Flags that a 1-point lift on 600 signups a day takes weeks, and says whether that's worth it",
+        "Offers real alternatives if the test isn't feasible, such as a larger effect, an upstream metric, or a qualitative check"
+      ]
+    }
+  ]
+}
