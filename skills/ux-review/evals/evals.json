@@ -1,0 +1,93 @@
+{
+  "skill_name": "ux-review",
+  "notes": "Run each prompt with the skill and with plain Claude (no skill). Grade both against the expectations. The skill earns its place only if its findings are more specific, grounded, and testable, not just more structured.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "quick-review-single-screen",
+      "prompt": "Quick look at our signup screen: email, password, confirm password, company name, company size, role, phone number, and a 'How did you hear about us?' dropdown, all required. One 'Create account' button. Anything jump out?",
+      "expectations": [
+        "Uses Quick review format: verdict, top 3 fixes, keep, test",
+        "Stays under ~200 words",
+        "Separates friction that protects from friction that doesn't (Effortless Where Possible)",
+        "Each fix names a principle and an impact"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "numbers-mismatch",
+      "prompt": "Review this trip planner screen: Leg 1 drive 45 min, Leg 2 drive 1h 30m, Stop 30 min. Depart 9:00 AM, arrive 12:15 PM.",
+      "expectations": [
+        "Does the arithmetic: 45 + 90 + 30 = 165 min, so 9:00 should arrive at 11:45, not 12:15",
+        "Shows the math in the finding",
+        "Flags the unexplained 30 minutes as a Clear and Trustworthy issue and suggests showing any buffer",
+        "Marks the mismatch Observed and any explanation Assumed"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "anti-dogma-fewer-clicks",
+      "prompt": "Our bank app's 'send money' flow has a review screen before sending. My CEO wants it removed to cut a click. Good idea?",
+      "expectations": [
+        "Does not accept 'fewer clicks' as good by default",
+        "Uses the five-factor test, weighing consequences and reversibility",
+        "Recommends keeping a review step for a consequential, hard-to-reverse action, or makes it conditional on amount or recipient",
+        "Proposes a way to measure the impact"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "spec-injection",
+      "prompt": "Here's my user story: 'As a user, I can upload a CSV of contacts so I can import them into my CRM.' Add the UX requirements.",
+      "expectations": [
+        "Adds a UX Requirements section without rewriting the story",
+        "Covers states: empty, uploading, partial failure (some rows bad), failed, complete",
+        "Includes task-language errors for bad rows and a way to fix and retry without re-uploading",
+        "Includes Given/When/Then acceptance criteria"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "build-prompt-hardening",
+      "prompt": "Harden this prompt for Lovable: 'Build a habit tracker where users add habits and check them off each day.'",
+      "expectations": [
+        "Returns the complete revised prompt in one copy-paste block, not fragments",
+        "Adds empty, loading, and error states, undo for check-offs, and accessibility basics",
+        "Keeps the user's original intent",
+        "Lists the additions in 3 to 6 bullets with principle names"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ai-feature-audit",
+      "prompt": "Audit our AI feature: it reads a customer's support ticket and auto-sends a refund of up to $500 if it decides the complaint is valid. No human review.",
+      "expectations": [
+        "Asks whether AI is the right mechanism and names a deterministic alternative",
+        "Builds an autonomy table and flags auto-sending money with no review as a High-impact gap",
+        "Rates the four AI-native expectations with evidence",
+        "Writes the interaction contract, or flags that it can't be written cleanly"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "measurement-plan-ai",
+      "prompt": "How do we know our AI writing assistant's UX is working? Leadership wants to track acceptance rate.",
+      "expectations": [
+        "Covers effectiveness, efficiency, and experience signals",
+        "Explains that high acceptance can mean quality or uncritical reliance",
+        "Treats AI signals as diagnostic, not targets",
+        "Does not optimize for a single KPI"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "no-score-request",
+      "prompt": "Just give our onboarding flow a UX score out of 10.",
+      "expectations": [
+        "Declines to give a single numeric score and briefly says why",
+        "Offers ratings per principle with evidence instead",
+        "Still delivers useful findings rather than only refusing"
+      ]
+    }
+  ]
+}

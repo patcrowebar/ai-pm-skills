@@ -9,6 +9,7 @@ Each skill is a folder with a `SKILL.md` file that Claude (and other agents that
 | Skill | What it does | Use it when |
 |---|---|---|
 | [build-to-learn](skills/build-to-learn/) | Decision-first experiment coach. Finds the riskiest belief behind a bet, recommends the one test worth running (or tells you to just decide), and reviews the results honestly afterward. | You're about to build, fund, price, or test something, or you're back with results and need to know what they actually proved. |
+| [ux-review](skills/ux-review/) | Reviews or shapes a product experience against a UX thesis of 8 principles and 4 AI-native expectations. Covers full and quick reviews, spec requirements, build-prompt hardening, trade-off calls, AI feature audits, and measurement plans. | You have a screen, flow, spec, build prompt, or AI feature and want specific, testable UX feedback instead of taste. |
 
 More skills are coming.
 
@@ -22,6 +23,7 @@ Copy the skill folder into your personal skills directory:
 git clone https://github.com/patcrowebar/ai-pm-skills.git
 mkdir -p ~/.claude/skills
 cp -r ai-pm-skills/skills/build-to-learn ~/.claude/skills/
+cp -r ai-pm-skills/skills/ux-review ~/.claude/skills/
 ```
 
 To make it available in a single project only, copy it into that project's `.claude/skills/` folder instead.
@@ -56,13 +58,22 @@ ai-pm-skills/
 ├── README.md
 ├── LICENSE
 └── skills/
-    └── build-to-learn/
+    ├── build-to-learn/
+    │   ├── SKILL.md
+    │   ├── README.md
+    │   ├── CHANGELOG.md
+    │   ├── examples/
+    │   │   ├── plan-example.md
+    │   │   └── review-example.md
+    │   └── evals/
+    │       └── evals.json
+    └── ux-review/
         ├── SKILL.md
         ├── README.md
         ├── CHANGELOG.md
         ├── examples/
-        │   ├── plan-example.md
-        │   └── review-example.md
+        │   ├── quick-review-example.md
+        │   └── tradeoff-example.md
         └── evals/
             └── evals.json
 ```
@@ -70,6 +81,8 @@ ai-pm-skills/
 ## Feedback
 
 Found a case where a skill gave bad advice? Open an issue with the prompt you used and what you expected. Those cases become new evals.
+
+Pull requests aren't being accepted right now. Issues and suggestions are welcome.
 
 ## License
 
